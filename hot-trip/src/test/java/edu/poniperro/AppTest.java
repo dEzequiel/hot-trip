@@ -9,6 +9,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import edu.poniperro.interfaces.Pedido;
+import edu.poniperro.interfaces.TratamientoPedido;
+import edu.poniperro.pedidos.PedidoInternacional;
+import edu.poniperro.tratamientos.TratamientoPedidoInternacional;
+
 /**
  * NO PUEDES MODIFICAR EL CODIGO DE LOS CASOS TEST
  */
@@ -24,17 +29,17 @@ public class AppTest {
      * Crea las clases necesarias que se requieren en los casos test
      * respetando los constructores que se exigen.
      */
-    // @Test
-	// public void test_Mordor() {
+    @Test
+	public void test_Mordor() {
 
-    //     Pedido pedidoInt = new PedidoInternacional("Mordor", 100);
-    //     assertEquals("Mordor", pedidoInt.destino());
+        Pedido pedidoInt = new PedidoInternacional("Mordor", 100);
+        assertEquals("Mordor", pedidoInt.destino());
 
-	// 	TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional(
-    //                                                 (PedidoInternacional) pedidoInt);
-    //     assertNotNull(tratamientoKO);
-    //     assertFalse(tratamientoKO.tratar());
-	// }
+		TratamientoPedido tratamientoKO = new TratamientoPedidoInternacional(
+                                                    (PedidoInternacional) pedidoInt);
+        assertNotNull(tratamientoKO);
+        assertFalse(tratamientoKO.tratar());
+	}
 
 	// @Test
 	// public void test_Comarca() {
