@@ -1,10 +1,12 @@
 package edu.poniperro.pedidos;
 
+import java.util.UUID;
+
 import edu.poniperro.interfaces.Pedido;
 import edu.poniperro.interfaces.PedidoPeligroso;
 
 public class PedidoPeligrosoOrden implements PedidoPeligroso {
-    // private final String id;
+    private final String id = UUID.randomUUID().toString();
     private String destino;
     private int peso;
     private String instrucciones;
@@ -35,7 +37,7 @@ public class PedidoPeligrosoOrden implements PedidoPeligroso {
         return this.destino;
     }
 
-    // public String getId() {
-    //     return this.id;
-    // }
+    public String getId() {
+        return this.id;
+    }
 }
