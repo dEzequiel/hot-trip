@@ -1,5 +1,10 @@
 package edu.poniperro.interfaces;
 
-public interface PedidoPeligroso {
+/**
+ * La interfaz PedidoPeligroso hereda los metodos de la
+ * interfaz Pedido y unicamente implementa un metodo.
+ */
+
+public interface PedidoPeligroso extends Pedido{
     String instrucciones();
 }
