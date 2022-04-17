@@ -80,17 +80,17 @@ public class AppTest {
         assertFalse(tratamientoKO.tratar());
     }
 
-    // @Test
-    // public void test_pedido_peligroso_OK() {
+    @Test
+    public void test_pedido_peligroso_OK() {
 
-    //     Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Cima de los vientos",
-    //                                                        "No urgarse en las uñas con este puñal");
-    //     assertEquals("Cima de los vientos", pedidoConPeligro.destino());
+        Pedido pedidoConPeligro = new PedidoPeligrosoOrden("Cima de los vientos",
+                                                           "No urgarse en las uñas con este puñal");
+        assertEquals("Cima de los vientos", pedidoConPeligro.destino());
 
-    //     TratamientoPedido tratamientoOK = new TratamientoPedidoPeligroso(
-    //                                                 (PedidoPeligroso) pedidoConPeligro);
-    //     assertTrue(tratamientoOK.tratar());
-    // }
+        TratamientoPedido tratamientoOK = new TratamientoPedidoPeligroso(
+                                                    (PedidoPeligroso) pedidoConPeligro);
+        assertTrue(tratamientoOK.tratar());
+    }
 
     // /**
     //  * Añade a las clases PedidoInternacional y PedidoPeligrosoOrden
@@ -98,17 +98,17 @@ public class AppTest {
     //  * autogenerado haciendo uso de la clase UUID de Java
     //  * https://docs.oracle.com/javase/8/docs/api/java/util/UUID.html
     //  */
-    // @Test
-    // public void test_UUID_generator() {
+    @Test
+    public void test_UUID_generator() {
 
-    //     PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
-    //     PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos",
-    //                                                               "No urgarse en las uñas con este puñal");
-    //     assertNotNull(internacional.getId());
-    //     assertNotNull(peligroso.getId());
+        PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
+        PedidoPeligrosoOrden peligroso = new PedidoPeligrosoOrden("Cima de los vientos",
+                                                                  "No urgarse en las uñas con este puñal");
+        assertNotNull(internacional.getId());
+        assertNotNull(peligroso.getId());
 
-    //     assertNotEquals(internacional.getId(), peligroso.getId());
-    // }
+        assertNotEquals(internacional.getId(), peligroso.getId());
+    }
 
     // /**
     //  * Añade una clase para los pedidos nacionales.
