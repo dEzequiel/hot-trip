@@ -1,10 +1,12 @@
 package edu.poniperro.pedidos;
 
+import java.util.UUID;
+
 import edu.poniperro.interfaces.Pedido;
 
 public class PedidoInternacional implements Pedido{
 
-    // private final String id;
+    private final String id = UUID.randomUUID().toString();
     private String destino;
     private int peso;
 
@@ -13,9 +15,9 @@ public class PedidoInternacional implements Pedido{
         this.peso = peso;
     }
 
-    // public String getId() {
-    //     return this.id;
-    // }
+    public String getId() {
+        return this.id;
+    }
 
     @Override
     public String destino() {
