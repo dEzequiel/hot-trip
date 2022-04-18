@@ -13,6 +13,7 @@ import edu.poniperro.interfaces.Pedido;
 import edu.poniperro.interfaces.PedidoPeligroso;
 import edu.poniperro.interfaces.TratamientoPedido;
 import edu.poniperro.pedidos.PedidoInternacional;
+import edu.poniperro.pedidos.PedidoNacional;
 import edu.poniperro.pedidos.PedidoPeligrosoOrden;
 import edu.poniperro.tratamientos.TratamientoPedidoInternacional;
 import edu.poniperro.tratamientos.TratamientoPedidoPeligroso;
@@ -114,15 +115,15 @@ public class AppTest {
     //  * Añade una clase para los pedidos nacionales.
     //  */
 
-    // @Test
-    // public void test_pedido_nacional_UUDI() {
+    @Test
+    public void test_pedido_nacional_UUDI() {
 
-    //     PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
-    //     assertNotNull(internacional);
-    //     PedidoNacional nacional = new PedidoNacional("Gondor", 50);
-    //     assertNotNull(nacional);
-    //     assertNotEquals(internacional.getId(), nacional.getId());
-    // }
+        PedidoInternacional internacional = new PedidoInternacional("Mordor", 10);
+        assertNotNull(internacional);
+        PedidoNacional nacional = new PedidoNacional("Gondor", 50);
+        assertNotNull(nacional);
+        assertNotEquals(internacional.getId(), nacional.getId());
+    }
 
     // /**
     //  * Construye una oficina que procese todo tipo de pedidos.
