@@ -7,15 +7,23 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.junit.Test;
 
 import edu.poniperro.interfaces.Pedido;
 import edu.poniperro.interfaces.PedidoPeligroso;
+import edu.poniperro.interfaces.Procesador;
 import edu.poniperro.interfaces.TratamientoPedido;
 import edu.poniperro.pedidos.PedidoInternacional;
 import edu.poniperro.pedidos.PedidoNacional;
 import edu.poniperro.pedidos.PedidoPeligrosoOrden;
+import edu.poniperro.procesadores.Oficina;
 import edu.poniperro.tratamientos.TratamientoPedidoInternacional;
+import edu.poniperro.tratamientos.TratamientoPedidoMultiple;
 import edu.poniperro.tratamientos.TratamientoPedidoPeligroso;
 
 /**
@@ -133,19 +141,19 @@ public class AppTest {
     //  * tipo de pedido
     //  */
 
-    // @Test
-    // public void test_interface_procesador() {
+    @Test
+    public void test_interface_procesador() {
 
-    //     Procesador correos = new Oficina();
-    //     TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(
-    //                                         new PedidoInternacional("Comarca", 100));
-    //     assertTrue(correos.procesa(pedidoInt));
+        Procesador correos = new Oficina();
+        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(
+                                            new PedidoInternacional("Comarca", 100));
+        assertTrue(correos.procesa(pedidoInt));
 
-    //     TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(
-    //                                              new PedidoPeligrosoOrden("Cima de los vientos",
-    //                                             "No urgarse en las uñas con este puñal"));
-    //     assertTrue(correos.procesa(pedidoConPeligro));
-    // }
+        TratamientoPedido pedidoConPeligro = new TratamientoPedidoPeligroso(
+                                                 new PedidoPeligrosoOrden("Cima de los vientos",
+                                                "No urgarse en las uñas con este puñal"));
+        assertTrue(correos.procesa(pedidoConPeligro));
+    }
 
     // /**
     //  * La oficina puede enviar un mensaje que informe del
@@ -155,27 +163,27 @@ public class AppTest {
     //  * ACEPTADO y RECHAZADO.
     //  */
 
-    // @Test
-    // public void test_printar_status() {
+    @Test
+    public void test_printar_status() {
 
-    //     Oficina correos = new Oficina();
-    //     PedidoInternacional toComarcaWithLove = new PedidoInternacional("Comarca", 100);
-    //     TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(toComarcaWithLove);
+        Oficina correos = new Oficina();
+        PedidoInternacional toComarcaWithLove = new PedidoInternacional("Comarca", 100);
+        TratamientoPedido pedidoInt = new TratamientoPedidoInternacional(toComarcaWithLove);
 
-    //     assertTrue(correos.procesa(pedidoInt));
-    //     assertEquals("Comarca ACEPTADO", correos.printarStatus(
-    //                                         correos.procesa(pedidoInt), toComarcaWithLove));
+        assertTrue(correos.procesa(pedidoInt));
+        assertEquals("Comarca ACEPTADO", correos.printarStatus(
+                                            correos.procesa(pedidoInt), toComarcaWithLove));
 
-    //     PedidoPeligroso pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino",
-    //                                                                 "No ponerselo en el dedo");
-    //     TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(pedidoConPeligro);
+        PedidoPeligroso pedidoConPeligro = new PedidoPeligrosoOrden("Monte del destino",
+                                                                    "No ponerselo en el dedo");
+        TratamientoPedido tratamientoKO = new TratamientoPedidoPeligroso(pedidoConPeligro);
 
-    //     assertFalse(correos.procesa(tratamientoKO));
-    //     assertEquals("Monte del destino RECHAZADO", correos.printarStatus(
-    //                                                     correos.procesa(tratamientoKO),
-    //                                                                     pedidoConPeligro));
+        assertFalse(correos.procesa(tratamientoKO));
+        assertEquals("Monte del destino RECHAZADO", correos.printarStatus(
+                                                        correos.procesa(tratamientoKO),
+                                                                        pedidoConPeligro));
 
-    // }
+    }
 
     // /**
     //  * Crea una clase TratamientoPedidoMultiple que permita tratar
@@ -191,27 +199,27 @@ public class AppTest {
     //  * respetando los constructores que se exigen.
     //  */
 
-    // @Test
-    // public void test_tratamiento_pedido_multiple_tratar() {
+    @Test
+    public void test_tratamiento_pedido_multiple_tratar() {
 
-    //     /**
-    //      * Crea una colección de tres pedidos nacionales, a "Gondor", "Minas Tirith", "Rohan"
-    //      * con un peso de 10 cada uno.
-    //      *
-    //      * Pasasela a TratamientoPedidosMultiple en su constructor.
-    //      */
+        /**
+         * Crea una colección de tres pedidos nacionales, a "Gondor", "Minas Tirith", "Rohan"
+         * con un peso de 10 cada uno.
+         *
+         * Pasasela a TratamientoPedidosMultiple en su constructor.
+         */
 
-    //     Set<Pedido> pedidos = new HashSet<>();
-    //     List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
-    //     List<Integer> pesos = Arrays.asList(10, 10, 10);
+        Set<Pedido> pedidos = new HashSet<>();
+        List<String> destinos = Arrays.asList("Gondor", "Minas Tirith", "Rohan");
+        List<Integer> pesos = Arrays.asList(10, 10, 10);
 
-    //     for (int i=0; i<destinos.size(); i++) {
-    //         pedidos.add(new PedidoNacional(destinos.get(i), pesos.get(i)));
-    //     }
-    //     assertEquals(3, pedidos.size());
+        for (int i=0; i<destinos.size(); i++) {
+            pedidos.add(new PedidoNacional(destinos.get(i), pesos.get(i)));
+        }
+        assertEquals(3, pedidos.size());
 
-    //     TratamientoPedidoMultiple pedidosMult = new TratamientoPedidoMultiple(pedidos);
-    //     assertNotNull(pedidosMult);
+        TratamientoPedidoMultiple pedidosMult = new TratamientoPedidoMultiple(pedidos);
+        assertNotNull(pedidosMult);
 
     //     /**
     //      * Completa los metodos del pedido multiple.
@@ -227,15 +235,15 @@ public class AppTest {
     //      *
     //      */
 
-    //     pedidosMult.calcularTotalBultos();
-    //     assertEquals(3, pedidosMult.getNumBultos(), 0);
+        pedidosMult.calcularTotalBultos();
+        assertEquals(3, pedidosMult.getNumBultos(), 0);
 
-    //     pedidosMult.calcularPesoTotal();
-    //     assertEquals(30, pedidosMult.getPesoTotal(), 0);
+        pedidosMult.calcularPesoTotal();
+        assertEquals(30, pedidosMult.getPesoTotal(), 0);
 
     //     /**
     //      * Trata el pedido multiple.
     //      */
-    //     assertTrue(pedidosMult.tratar());
-    // }
+        assertTrue(pedidosMult.tratar());
+    }
 }
